@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+            <h2><u>TO-DO LIST</u></h2>
+           
+                <form>
+                    <label>Task:</label>
+                    <input type="text" id="task" name="task"/><br/><br/>
+
+
+                    <input type="submit" value="Add Task"/>
+                </form>
+
+                <table>
+                    <thead>
+                        <tr>
+
+                            <th>Task</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+          
+
+            <script>
+                var arr = [];
+                var form = document.querySelector('form');
+                form.addEventListener('submit' , addTask);
+                var tbody = document.querySelector('tbody')
+
+                function addTask(event){
+                    event.preventDefault();
+                    var task = event.target.task.value;
+                   
+
+                    var tr = document.createElement('tr');
+
+                    var td1 = document.createElement('input');
+                    td1.type = "checkbox";
+             
+
+                    var td2 = document.createElement('td');
+                    td2.innerText = task;
+
+                    var td3= document.createElement('button');
+                    td3.innerText = "delete"
+
+                    tr.append(td1,td2,td3)
+                    tbody.append(tr)
+                    
+                    td3.addEventListener('click',removeRow)
+
+                    function removeRow(event){
+                        event.target.parentNode.remove()
+                    }
+                    form.reset()
+                }
+
+                
+                
+            </script>
+            
+</body>
+</html>
